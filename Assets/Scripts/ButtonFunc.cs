@@ -8,9 +8,17 @@ public class ButtonFunc : MonoBehaviour
     [SerializeField]
     private int LoadSceneNumber;
 
+    [SerializeField]
+    private GameObject target;
+
     public void ClickToLoadScene()
     {
         SceneManager.LoadSceneAsync(LoadSceneNumber);
+    }
+
+    public void CloseObject()
+    {
+        target.SetActive(false);
     }
 
 }
