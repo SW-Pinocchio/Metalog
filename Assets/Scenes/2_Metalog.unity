@@ -5664,7 +5664,6 @@ GameObject:
   - component: {fileID: 1355243103}
   - component: {fileID: 1355243102}
   - component: {fileID: 1355243101}
-  - component: {fileID: 1355243104}
   m_Layer: 0
   m_Name: Camera_Deco
   m_TagString: MainCamera
@@ -5738,19 +5737,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1355243104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355243100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627bf07d71af6304ab01a5ec3baf2510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camDeco: {fileID: 1355243102}
 --- !u!1001 &1379043782
 PrefabInstance:
   m_ObjectHideFlags: 0

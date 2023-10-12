@@ -7,18 +7,12 @@ public class CreateFurniture : MonoBehaviour
     public GameObject prefabToSpawn; // 생성할 프리팹을 여기에 연결해주세요.
     private GameObject spawnedPrefab;
 
-    private bool clicked;
 
-
-    private void Awake()
-    {
-        clicked = false;
-    }
     public void Onclick()
     {
         Vector3 mousePosition = GetMouseWorldPosition();
         spawnedPrefab = Instantiate(prefabToSpawn, mousePosition, Quaternion.identity);
-        Debug.Log("spawn");
+        Cursor.visible = false;
     }
     void Update()
     {
@@ -33,8 +27,7 @@ public class CreateFurniture : MonoBehaviour
         {
             // 마우스에서 손을 뗐을 때 프리팹을 그 위치에 남깁니다.
             spawnedPrefab = null;
-            Debug.Log("Drop");
-            
+            Cursor.visible = true;
         }
     }
 
