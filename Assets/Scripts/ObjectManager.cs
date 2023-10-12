@@ -8,13 +8,19 @@ public class ObjectManager : MonoBehaviour
     public void AddObject(GameObject obj)
     {
         objectsList.Add(obj);
-        if(objectsList.Count > 1)
+        if(Mathf.Abs(obj.transform.position.x) < 2f && Mathf.Abs(obj.transform.position.y) < 2f)
         {
-            Debug.Log(objectsList[objectsList.Count - 2].gameObject.transform.position);
+            RemoveObject(obj);
         }
-        
-        // 오브젝트 추가 후 원하는 작업 수행
+        Debug.Log(objectsList.Count);
     }
 
-    // 다른 관리 기능들을 추가할 수 있습니다.
+    public void RemoveObject(GameObject obj)
+    {
+        if (objectsList.Contains(obj))
+        {
+            objectsList.Remove(obj);
+            Destroy(obj);
+        }
+    }
 }

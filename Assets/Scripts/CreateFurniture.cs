@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateFurniture : MonoBehaviour
 {
     public GameObject prefabToSpawn; // 생성할 프리팹을 여기에 연결해주세요.
     private GameObject spawnedPrefab;
     private ObjectManager objectManager;
+
+    [SerializeField]
+    private Image deleteZone;
 
     private void Awake()
     {
@@ -17,7 +21,7 @@ public class CreateFurniture : MonoBehaviour
     {
         Vector3 mousePosition = GetMouseWorldPosition();
         spawnedPrefab = Instantiate(prefabToSpawn, mousePosition, Quaternion.identity);
-        objectManager.AddObject(spawnedPrefab);
+        deleteZone.gameObject.SetActive(true);
         Cursor.visible = false;
     }
     void Update()
@@ -31,7 +35,8 @@ public class CreateFurniture : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) && spawnedPrefab != null)
         {
-            // 마우스에서 손을 뗐을 때 프리팹을 그 위치에 남깁니다.
+            objectManager.AddObject(spawnedPrefab);
+            deleteZone.gameObject.SetActive(false);
             spawnedPrefab = null;
             Cursor.visible = true;
         }
@@ -47,10 +52,10 @@ public class CreateFurniture : MonoBehaviour
             if (hitObjectTag == "Floor")
             {
                 hit.point = hit.point - new Vector3(0, 4, 0);
-
                 return hit.point;
             }
         }
         return Vector3.zero;
+        
     }
 }
