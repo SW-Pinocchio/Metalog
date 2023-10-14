@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5717505516186086752, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
+      propertyPath: m_Size.x
+      value: 2.296847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717505516186086752, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
+      propertyPath: m_Size.z
+      value: 2.2439942
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717505516186086752, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
+      propertyPath: m_Center.x
+      value: -0.018585086
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717505516186086752, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
+      propertyPath: m_Center.z
+      value: -0.017755449
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717505516186086752, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8228670744583830499, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
       propertyPath: m_Name
       value: Table_Dining_Apt_01_Setup Variant
@@ -55,7 +75,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8991444742491562132, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 88eb65b4dea685a4cad7ad664104b001, type: 3}
 --- !u!4 &9190095107950864778 stripped
 Transform:

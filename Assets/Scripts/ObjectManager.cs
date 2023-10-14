@@ -18,14 +18,7 @@ public class ObjectManager : MonoBehaviour
     public void AddObject(GameObject obj, int objType)
     {
         objectsList.Add(obj);
-        if(Mathf.Abs(obj.transform.position.x) < 2f && Mathf.Abs(obj.transform.position.y) < 2f)
-        {
-            RemoveObject(obj);
-        }
-        else
-        {
-            DatabaseManager.AddFurniture(obj, PlayerPrefs.GetInt("UserID"), objectsList.IndexOf(obj), objType);
-        }    
+        DatabaseManager.AddFurniture(obj, PlayerPrefs.GetInt("UserID"), objectsList.IndexOf(obj), objType); 
     }
 
     public void RemoveObject(GameObject obj)

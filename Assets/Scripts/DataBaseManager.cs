@@ -11,7 +11,7 @@ public class DataBaseManager : MonoBehaviour
 {
     public string addFurnitureURL = "http://localhost/Metalog/addFurniture.php?";
     public string loadFurnitureURL = "http://localhost/Metalog/loadFurniture.php?";
-    public string deleteDataURL = "http://localhost/Metalog/deleteFurniture.php?";
+    public string deleteFunitureURL = "http://localhost/Metalog/deleteFurniture.php";
     private ObjectManager objectManager;
 
     public static List<FurnitureData> dataList;
@@ -122,7 +122,7 @@ public class DataBaseManager : MonoBehaviour
    IEnumerator DeleteDataCoroutine(int userID)
     {
         string encodedUserID = UnityWebRequest.EscapeURL(userID.ToString());
-        string url = deleteDataURL + "userID=" + encodedUserID;
+        string url = deleteFunitureURL + "?userID=" + encodedUserID;
         Debug.Log(url);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))

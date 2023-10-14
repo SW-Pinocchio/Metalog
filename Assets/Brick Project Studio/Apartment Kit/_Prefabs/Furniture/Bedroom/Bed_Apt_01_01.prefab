@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3741930696584387961}
   - component: {fileID: 2061951137126809883}
   - component: {fileID: 2255247479494259507}
-  - component: {fileID: 2112037616177321720}
   m_Layer: 0
   m_Name: Pillow_Apt_01
   m_TagString: Untagged
@@ -29,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0871491, y: 0.54280984, z: -0.00064468384}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6852825830425637504}
   m_RootOrder: 0
@@ -52,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -82,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2112037616177321720
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2824428921207601606}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9002668, y: 0.30814728, z: 1.460786}
-  m_Center: {x: -0.00035744905, y: 0.12880881, z: -0.0013258457}
 --- !u!1 &5941839947436283181
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +95,6 @@ GameObject:
   - component: {fileID: 5094750393437968449}
   - component: {fileID: 6816677564126679144}
   - component: {fileID: 944290936563880945}
-  - component: {fileID: 3790675109821727727}
   m_Layer: 0
   m_Name: Bed_Apt_01_01
   m_TagString: Untagged
@@ -125,6 +112,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6852825830425637504}
   m_Father: {fileID: 0}
@@ -149,6 +137,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -190,21 +179,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2571526, y: 0.39456296, z: 1.5710046}
-  m_Center: {x: -0.00000047683716, y: 0.19728148, z: -0.0051732063}
---- !u!65 &3790675109821727727
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5941839947436283181}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16218007, y: 1.4632657, z: 1.5710046}
-  m_Center: {x: -1.5474868, y: 0.7316328, z: -0.0051732063}
+  m_Size: {x: 3.2571526, y: 1.4211253, z: 1.5710046}
+  m_Center: {x: -0.00000047683716, y: 0.71056265, z: -0.0051732063}
 --- !u!1 &6693551714665185562
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +209,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.019315004, y: 0.5203991, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6852825830425637504}
   m_RootOrder: 1
@@ -256,6 +233,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -297,7 +275,6 @@ GameObject:
   - component: {fileID: 6852825830425637504}
   - component: {fileID: 2915043974780966476}
   - component: {fileID: 2178181277392150257}
-  - component: {fileID: 7551278821581706151}
   m_Layer: 0
   m_Name: Mattress_Apt_01
   m_TagString: Untagged
@@ -315,6 +292,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.072395325, y: 0.36919236, z: 0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3741930696584387961}
   - {fileID: 3848076423006941425}
@@ -340,6 +318,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -370,16 +349,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7551278821581706151
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7201899421009194888}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.0961194, y: 0.43173492, z: 1.4988136}
-  m_Center: {x: -0.00000047683716, y: 0.2726298, z: -0.0000009834766}
