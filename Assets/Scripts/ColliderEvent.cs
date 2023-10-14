@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,9 @@ public class ColliderEvent : MonoBehaviour
     [SerializeField]
     private GameObject UIObject = null;
 
+    [SerializeField]
+    private GameObject LoadUI;
+
     private void OnTriggerEnter(Collider other)
     {
         switch (colType)
@@ -30,6 +34,8 @@ public class ColliderEvent : MonoBehaviour
                 break;
             case ColType.UIOpen:
                 UIObject.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
             case ColType.Exit:
                 Application.Quit();
@@ -38,6 +44,16 @@ public class ColliderEvent : MonoBehaviour
                 break;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadSceneAsync(SceneNum);
+        }
+    }
+
+
 
 
 

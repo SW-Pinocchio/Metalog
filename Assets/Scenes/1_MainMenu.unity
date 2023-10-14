@@ -1793,6 +1793,7 @@ MonoBehaviour:
   colType: 2
   SceneNum: 0
   UIObject: {fileID: 0}
+  LoadUI: {fileID: 0}
 --- !u!54 &262818135
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2173,6 +2174,7 @@ MonoBehaviour:
   colType: 0
   SceneNum: 2
   UIObject: {fileID: 0}
+  LoadUI: {fileID: 0}
 --- !u!65 &351148738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7709,6 +7711,7 @@ MonoBehaviour:
   colType: 1
   SceneNum: 0
   UIObject: {fileID: 429728685}
+  LoadUI: {fileID: 0}
 --- !u!65 &1409377527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8719,6 +8722,7 @@ GameObject:
   - component: {fileID: 1573986889}
   - component: {fileID: 1573986888}
   - component: {fileID: 1573986887}
+  - component: {fileID: 1573986890}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -8776,6 +8780,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573986890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573986886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a916559f30004d47b1bd3c29482542d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1599060114
 PrefabInstance:
   m_ObjectHideFlags: 0

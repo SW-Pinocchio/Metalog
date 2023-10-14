@@ -12,6 +12,10 @@ public class CreateFurniture : MonoBehaviour
 
     [SerializeField]
     private Image deleteZone;
+    [SerializeField]
+    private int objType;
+    [SerializeField]
+    private GameObject Parent;
 
     private void Awake()
     {
@@ -21,6 +25,7 @@ public class CreateFurniture : MonoBehaviour
     {
         Vector3 mousePosition = GetMouseWorldPosition();
         spawnedPrefab = Instantiate(prefabToSpawn, mousePosition, Quaternion.identity);
+        spawnedPrefab.transform.SetParent(Parent.transform);
         deleteZone.gameObject.SetActive(true);
         Cursor.visible = false;
     }
@@ -35,7 +40,7 @@ public class CreateFurniture : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) && spawnedPrefab != null)
         {
-            objectManager.AddObject(spawnedPrefab);
+            objectManager.AddObject(spawnedPrefab, objType);
             deleteZone.gameObject.SetActive(false);
             spawnedPrefab = null;
             Cursor.visible = true;
