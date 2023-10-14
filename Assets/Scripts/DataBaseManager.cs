@@ -65,7 +65,6 @@ public class DataBaseManager : MonoBehaviour
 
     public void DeleteDataForUserID(int userID)
     {
-        Debug.Log("func");
         StartCoroutine(DeleteDataCoroutine(userID));
     }
 
@@ -123,7 +122,6 @@ public class DataBaseManager : MonoBehaviour
     {
         string encodedUserID = UnityWebRequest.EscapeURL(userID.ToString());
         string url = deleteFunitureURL + "?userID=" + encodedUserID;
-        Debug.Log(url);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {

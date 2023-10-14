@@ -84,7 +84,6 @@ public class CreateFurniture : MonoBehaviour
             string hitObjectTag = hit.collider.gameObject.tag;
             if (hitObjectTag == "Floor")
             {
-                //hit.point = hit.point - new Vector3(0, 4, 0);
                 return hit.point;
             }
         }
