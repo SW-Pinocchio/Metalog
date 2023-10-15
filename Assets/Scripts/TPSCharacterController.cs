@@ -37,8 +37,11 @@ public class TPSCharacterController : MonoBehaviour
 
     void Update()
     {
-        LookAround();
-        Move();
+        if (GameManager.decoMode == 0)
+        {
+            LookAround();
+            Move();
+        }
     }
 
     private void Move()

@@ -12,6 +12,7 @@ public class DataBaseManager : MonoBehaviour
     public string addFurnitureURL = "http://localhost/Metalog/addFurniture.php?";
     public string loadFurnitureURL = "http://localhost/Metalog/loadFurniture.php?";
     public string deleteFunitureURL = "http://localhost/Metalog/deleteFurniture.php";
+    public string addPostURL = "http://localhost/Metalog/addPost.php";
     private ObjectManager objectManager;
 
     public static List<FurnitureData> dataList;
@@ -38,9 +39,25 @@ public class DataBaseManager : MonoBehaviour
         public List<FurnitureData> furnitureList;
     }
 
+    [System.Serializable]
+    public class PostData
+    {
+        public int user_ID;
+        public int object_ID;
+        public int post_ID;
+        public string title;
+        public string content;
+    }
+    [System.Serializable]
+    public class PostList
+    {
+        public List<PostData> postList;
+    }
+
     private void Awake()
     {
         objectManager = FindObjectOfType<ObjectManager>();
+        Debug.Log(PlayerPrefs.GetInt("UserID"));
     }
 
     public void AddFurniture(GameObject obj, int UserID, int ObjID, int objectType)
@@ -58,6 +75,16 @@ public class DataBaseManager : MonoBehaviour
         StartCoroutine(SendFurnitureDataToPHP(userID, objNum, objType, furniturePositionX, furniturePositionY, furniturePositionZ, furnitureRotation));
     }
 
+    public void AddPost(int uid, int oid, int pid, string tt, string ct)
+    {
+        int user_ID = uid;
+        int object_ID = oid;
+        int post_ID = pid;
+        string title = tt;
+        string content = ct;
+        StartCoroutine(SendPostData(user_ID, object_ID, post_ID, title, content));
+    }
+
     public void LoadDataFromPHP()
     {
         StartCoroutine(LoadDataCoroutine());
@@ -70,7 +97,6 @@ public class DataBaseManager : MonoBehaviour
 
     IEnumerator SendFurnitureDataToPHP(int userID, int objNum, int objType, float posX, float posY, float posZ, float rot)
     {
-        // PHP로 데이터 전송하는 POST 요청
         WWWForm form = new WWWForm();
         string GUserID = "userID=" + userID.ToString() + "&";
         string GobjNum = "objNum=" + objNum.ToString() + "&";
@@ -82,16 +108,30 @@ public class DataBaseManager : MonoBehaviour
 
         UnityWebRequest www = UnityWebRequest.Get(addFurnitureURL + GUserID + GobjNum + GobjType + GposX + GposY + GposZ + Grot);
         yield return www.SendWebRequest();
-
-        //if (www.isNetworkError || www.isHttpError)
-        //{
-        //   Debug.LogError("Error: " + www.error);
-        //}
-        //else
-        //{
-        //    Debug.Log("Data sent to PHP successfully");
-        //}
     }
+
+    IEnumerator SendPostData(int user_ID, int object_ID, int post_ID, string title, string content)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("userID", user_ID);
+        form.AddField("objID", object_ID);
+        form.AddField("postID", post_ID);
+        form.AddField("title", title);
+        form.AddField("content", content);
+
+        UnityWebRequest www = UnityWebRequest.Post(addPostURL, form);
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Post request successful");
+        }
+        else
+        {
+            Debug.LogError("Error: " + www.error);
+        }
+    }
+
 
     IEnumerator LoadDataCoroutine()
     {

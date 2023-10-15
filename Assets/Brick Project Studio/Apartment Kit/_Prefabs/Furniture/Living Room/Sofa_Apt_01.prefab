@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3137146775804220750}
   - component: {fileID: 1324478425513962746}
   - component: {fileID: 7491705269882874849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 8386770273031945727}
   - component: {fileID: 7307648515516477410}
   - component: {fileID: 4836707261790691619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sofa_Apt_01
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,5 +179,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2133081, y: 1.2057914, z: 3.6077027}
-  m_Center: {x: 0.013920814, y: 0.6344189, z: 0.027941942}
+  m_Size: {x: 1.2235259, y: 1.2831326, z: 3.5545645}
+  m_Center: {x: 0.008782089, y: 0.6402168, z: -0.005918026}

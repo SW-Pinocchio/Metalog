@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5018950054057871644}
   - component: {fileID: 5018950054057871646}
   - component: {fileID: 5018950054057871647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 5018950054084982447}
   - component: {fileID: 5018950054084982441}
   - component: {fileID: 5018950054084982446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 5018950054119123286}
   - component: {fileID: 5018950054119123280}
   - component: {fileID: 5018950054119123281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 5018950055006186487}
   - component: {fileID: 5018950055006186481}
   - component: {fileID: 5018950055006186486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,9 +318,10 @@ GameObject:
   - component: {fileID: 5018950055216721056}
   - component: {fileID: 5018950055216721057}
   - component: {fileID: 5018950055216721062}
-  m_Layer: 0
+  - component: {fileID: -425112847914101646}
+  m_Layer: 6
   m_Name: Table_End_01
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -404,6 +405,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.81803846, y: 0.98125595, z: 1.0748398}
   m_Center: {x: 0, y: 0.49062797, z: 0}
+--- !u!114 &-425112847914101646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018950055216721061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960dbb7cce840574a92a93271cf86a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5018950055296117028
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +428,7 @@ GameObject:
   - component: {fileID: 5018950055296117031}
   - component: {fileID: 5018950055296117025}
   - component: {fileID: 5018950055296117030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drawer.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5018950055716668700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drawer Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +545,7 @@ GameObject:
   - component: {fileID: 5018950055889833694}
   - component: {fileID: 5018950055889833691}
   - component: {fileID: 5018950055889833688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drawer.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

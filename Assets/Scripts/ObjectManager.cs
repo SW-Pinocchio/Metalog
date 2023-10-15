@@ -18,7 +18,8 @@ public class ObjectManager : MonoBehaviour
     public void AddObject(GameObject obj, int objType)
     {
         objectsList.Add(obj);
-        DatabaseManager.AddFurniture(obj, PlayerPrefs.GetInt("UserID"), objectsList.IndexOf(obj), objType); 
+        obj.GetComponent<ObjectPost>().SetID(objectsList.IndexOf(obj));
+        DatabaseManager.AddFurniture(obj, PlayerPrefs.GetInt("UserID"), objectsList.IndexOf(obj), objType);
     }
 
     public void RemoveObject(GameObject obj)

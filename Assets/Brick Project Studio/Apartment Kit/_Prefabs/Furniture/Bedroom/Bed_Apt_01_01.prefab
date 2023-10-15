@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3741930696584387961}
   - component: {fileID: 2061951137126809883}
   - component: {fileID: 2255247479494259507}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow_Apt_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,10 @@ GameObject:
   - component: {fileID: 5094750393437968449}
   - component: {fileID: 6816677564126679144}
   - component: {fileID: 944290936563880945}
-  m_Layer: 0
+  - component: {fileID: 8922852395218140633}
+  m_Layer: 6
   m_Name: Bed_Apt_01_01
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,6 +182,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.2571526, y: 1.4211253, z: 1.5710046}
   m_Center: {x: -0.00000047683716, y: 0.71056265, z: -0.0051732063}
+--- !u!114 &8922852395218140633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941839947436283181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960dbb7cce840574a92a93271cf86a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6693551714665185562
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +205,7 @@ GameObject:
   - component: {fileID: 3848076423006941425}
   - component: {fileID: 1839907776765993108}
   - component: {fileID: 2549145306513761032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sheet_Apt_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +288,7 @@ GameObject:
   - component: {fileID: 6852825830425637504}
   - component: {fileID: 2915043974780966476}
   - component: {fileID: 2178181277392150257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mattress_Apt_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
