@@ -23,21 +23,8 @@ public class GameManager : MonoBehaviour
 
     PostManager m_post;
 
-
-    public static GameManager instance = null;
-
     private void Awake()
     {
-        if (instance == null) //instance가 null. 즉, 시스템상에 존재하고 있지 않을때
-        {
-            instance = this; //내자신을 instance로 넣어줍니다.
-            DontDestroyOnLoad(gameObject); //OnLoad(씬이 로드 되었을때) 자신을 파괴하지 않고 유지
-        }
-        else
-        {
-            if (instance != this) //instance가 내가 아니라면 이미 instance가 하나 존재하고 있다는 의미
-                Destroy(this.gameObject); //둘 이상 존재하면 안되는 객체이니 방금 AWake된 자신을 삭제
-        }
         m_post = FindObjectOfType<PostManager>();
     }
 
@@ -73,8 +60,7 @@ public class GameManager : MonoBehaviour
                 GameObject obj = GetMouseWorldPosition();
                 if(obj != null)
                 {
-                    Debug.Log(obj.GetComponent<ObjectPost>().GetID());
-                    m_post.OpenPost(obj.GetComponent<ObjectPost>().GetID(), obj.GetComponent<ObjectPost>().GetNum());
+                    m_post.OpenPost(obj.GetComponent<ObjectPost>().GetID());
                     decoMode = 2;
                     DecoModeSetting();
                 }

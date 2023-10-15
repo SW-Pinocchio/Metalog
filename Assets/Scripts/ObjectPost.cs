@@ -8,7 +8,6 @@ using UnityEngine;
 public class fPost
 {
     public int fID;
-    public int fNum;
 }
 public class ObjectPost : MonoBehaviour
 {
@@ -24,18 +23,8 @@ public class ObjectPost : MonoBehaviour
         return Post.fID;
     }
 
-    public int GetNum()
-    {
-        return Post.fNum;
-    }
-
     public void SetID(int n)
     {
         Post.fID = n;
-    }
-
-    public void AddNum()
-    {
-        Post.fNum++;
     }
 }

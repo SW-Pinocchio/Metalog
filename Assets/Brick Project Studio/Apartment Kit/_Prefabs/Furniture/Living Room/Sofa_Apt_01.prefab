@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8386770273031945727}
   - component: {fileID: 7307648515516477410}
   - component: {fileID: 4836707261790691619}
+  - component: {fileID: 8118553447033140347}
   m_Layer: 6
   m_Name: Sofa_Apt_01
   m_TagString: Furniture
@@ -181,3 +182,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2235259, y: 1.2831326, z: 3.5545645}
   m_Center: {x: 0.008782089, y: 0.6402168, z: -0.005918026}
+--- !u!114 &8118553447033140347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063128926208519524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960dbb7cce840574a92a93271cf86a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

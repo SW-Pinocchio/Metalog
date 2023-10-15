@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -10,17 +12,32 @@ using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
     public string addFurnitureURL = "http://localhost/Metalog/addFurniture.php?";
-    public string loadFurnitureURL = "http://localhost/Metalog/loadFurniture.php?";
+    public string loadFurnitureURL = "http://localhost/Metalog/loadFurniture.php";
     public string deleteFunitureURL = "http://localhost/Metalog/deleteFurniture.php";
     public string addPostURL = "http://localhost/Metalog/addPost.php";
+    public string loadPostURL = "http://localhost/Metalog/loadPost.php";
+    public string deletePostURL = "http://localhost/Metalog/deletePost.php";
     private ObjectManager objectManager;
 
-    public static List<FurnitureData> dataList;
+    public static List<FurnitureData> fDataList;
+
+    public static List<PostData> pDataList;
 
     [SerializeField]
     private GameObject[] furniturePrefab;
     [SerializeField]
     private GameObject Parent;
+
+    [SerializeField]
+    GameObject UICanvas;
+    [SerializeField]
+    InputField title_I;
+    [SerializeField]
+    InputField content_I;
+    [SerializeField]
+    Text title_O;
+    [SerializeField]
+    Text content_O;
 
     [System.Serializable]
     public class FurnitureData
@@ -33,6 +50,7 @@ public class DataBaseManager : MonoBehaviour
         public float posZ;
         public float rot;
     }
+    
     [System.Serializable]
     public class FurnitureDataList
     {
@@ -42,12 +60,12 @@ public class DataBaseManager : MonoBehaviour
     [System.Serializable]
     public class PostData
     {
-        public int user_ID;
-        public int object_ID;
-        public int post_ID;
+        public int userID;
+        public int objID;
         public string title;
         public string content;
     }
+    
     [System.Serializable]
     public class PostList
     {
@@ -75,14 +93,9 @@ public class DataBaseManager : MonoBehaviour
         StartCoroutine(SendFurnitureDataToPHP(userID, objNum, objType, furniturePositionX, furniturePositionY, furniturePositionZ, furnitureRotation));
     }
 
-    public void AddPost(int uid, int oid, int pid, string tt, string ct)
+    public void AddPost(int uid, int oid, string tt, string ct)
     {
-        int user_ID = uid;
-        int object_ID = oid;
-        int post_ID = pid;
-        string title = tt;
-        string content = ct;
-        StartCoroutine(SendPostData(user_ID, object_ID, post_ID, title, content));
+        StartCoroutine(SendPostData(uid, oid, tt, ct));
     }
 
     public void LoadDataFromPHP()
@@ -90,11 +103,20 @@ public class DataBaseManager : MonoBehaviour
         StartCoroutine(LoadDataCoroutine());
     }
 
+    public void LoadPost(int uid, int oid)
+    {
+        StartCoroutine(LoadPostCoroutine(uid, oid));
+    }
     public void DeleteDataForUserID(int userID)
     {
         StartCoroutine(DeleteDataCoroutine(userID));
     }
 
+    public void DeletePost(int uid, int oid)
+    {
+        StartCoroutine(DeletePostCoroutine(uid, oid));
+        StartCoroutine(LoadPostCoroutine(uid, oid));
+    }
     IEnumerator SendFurnitureDataToPHP(int userID, int objNum, int objType, float posX, float posY, float posZ, float rot)
     {
         WWWForm form = new WWWForm();
@@ -110,12 +132,11 @@ public class DataBaseManager : MonoBehaviour
         yield return www.SendWebRequest();
     }
 
-    IEnumerator SendPostData(int user_ID, int object_ID, int post_ID, string title, string content)
+    IEnumerator SendPostData(int user_ID, int object_ID, string title, string content)
     {
         WWWForm form = new WWWForm();
         form.AddField("userID", user_ID);
         form.AddField("objID", object_ID);
-        form.AddField("postID", post_ID);
         form.AddField("title", title);
         form.AddField("content", content);
 
@@ -125,13 +146,14 @@ public class DataBaseManager : MonoBehaviour
         if (www.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Post request successful");
+            title_I.text = "";
+            content_I.text = "";
         }
         else
         {
             Debug.LogError("Error: " + www.error);
         }
     }
-
 
     IEnumerator LoadDataCoroutine()
     {
@@ -143,25 +165,63 @@ public class DataBaseManager : MonoBehaviour
             FurnitureDataList furnitureDataList = JsonUtility.FromJson<FurnitureDataList>("{\"furnitureList\":" + jsonData + "}");
 
             // 데이터를 리스트에 저장
-            dataList = furnitureDataList.furnitureList;
+            fDataList = furnitureDataList.furnitureList;
 
-            foreach (FurnitureData data in dataList)
+            foreach (FurnitureData data in fDataList)
             {
                 if (data.userID == PlayerPrefs.GetInt("UserID"))
                 {
                     Vector3 spawnPosition = new Vector3(data.posX, data.posY, data.posZ);
                     Quaternion spawnRotation = Quaternion.Euler(0f, data.rot, 0f);
                     GameObject furnitureObject = Instantiate(furniturePrefab[data.objType], spawnPosition, spawnRotation);
+                    furnitureObject.GetComponent<ObjectPost>().SetID(data.objNum);
                     furnitureObject.transform.SetParent(Parent.transform);
                 }
             }
         }
     }
 
-   IEnumerator DeleteDataCoroutine(int userID)
+    IEnumerator LoadPostCoroutine(int uid, int oid)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get(loadPostURL))
+        {
+            yield return www.SendWebRequest();
+
+            bool ch = false;
+            string jsonData = www.downloadHandler.text;
+            PostList postDataList = JsonUtility.FromJson<PostList>("{\"postList\":" + jsonData + "}");
+            foreach (PostData postData in postDataList.postList)
+            {
+                if (postData.userID == uid && postData.objID == oid)
+                {
+                    ch = true;
+                    title_O.text = postData.title.ToString();
+                    content_O.text = postData.content.ToString();
+                }
+            }
+            if(!ch)
+            {
+                title_O.text = "";
+                content_O.text = "";
+            }
+        }
+    }
+
+    IEnumerator DeleteDataCoroutine(int userID)
     {
         string encodedUserID = UnityWebRequest.EscapeURL(userID.ToString());
         string url = deleteFunitureURL + "?userID=" + encodedUserID;
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+        }
+    }
+
+    IEnumerator DeletePostCoroutine(int userID, int objID)
+    {
+        string encodedUserID = UnityWebRequest.EscapeURL(userID.ToString());
+        string url = deletePostURL + "?userID=" + encodedUserID + "&objID=" + objID;
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
