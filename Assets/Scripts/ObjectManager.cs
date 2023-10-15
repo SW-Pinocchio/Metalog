@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static DataBaseManager;
-using static UnityEditor.Progress;
 
 public class ObjectManager : MonoBehaviour
 {
