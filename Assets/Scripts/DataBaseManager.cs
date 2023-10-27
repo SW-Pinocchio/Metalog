@@ -98,9 +98,9 @@ public class DataBaseManager : MonoBehaviour
         StartCoroutine(SendPostData(uid, oid, tt, ct));
     }
 
-    public void LoadDataFromPHP()
+    public void LoadDataFromPHP(int UID)
     {
-        StartCoroutine(LoadDataCoroutine());
+        StartCoroutine(LoadDataCoroutine(UID));
     }
 
     public void LoadPost(int uid, int oid)
@@ -155,7 +155,7 @@ public class DataBaseManager : MonoBehaviour
         }
     }
 
-    IEnumerator LoadDataCoroutine()
+    IEnumerator LoadDataCoroutine(int UID)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(loadFurnitureURL))
         {
@@ -169,7 +169,7 @@ public class DataBaseManager : MonoBehaviour
 
             foreach (FurnitureData data in fDataList)
             {
-                if (data.userID == PlayerPrefs.GetInt("UserID"))
+                if (data.userID == UID)
                 {
                     Vector3 spawnPosition = new Vector3(data.posX, data.posY, data.posZ);
                     Quaternion spawnRotation = Quaternion.Euler(0f, data.rot, 0f);

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -7,6 +8,11 @@ public class ObjectManager : MonoBehaviour
     private DataBaseManager DatabaseManager;
     [SerializeField]
     private GameObject Parent;
+
+    [SerializeField]
+    private GameObject Input;
+    [SerializeField]
+    private InputField text;
 
     private void Awake()
     {
@@ -31,7 +37,7 @@ public class ObjectManager : MonoBehaviour
 
     public void LoadLegacyFurniture()
     {
-        DatabaseManager.LoadDataFromPHP();                
+        DatabaseManager.LoadDataFromPHP(PlayerPrefs.GetInt("UserID"));
     }
 
     public void ClearFurniture()
@@ -41,6 +47,34 @@ public class ObjectManager : MonoBehaviour
         {
             Transform child = Parent.transform.GetChild(i);
             Destroy(child.gameObject);
+        }
+        
+    }
+
+    public void LoadAnother()
+    {
+        if(Input.activeSelf)
+        {
+            Input.SetActive(false);
+        }
+        else
+        {
+            Input.SetActive(true);
+        }
+        
+    }
+
+    public void ClicktoVisit()
+    {
+        int id;
+        if(int.TryParse(text.text, out id))
+        {
+            for (int i = Parent.transform.childCount - 1; i >= 0; i--)
+            {
+                Transform child = Parent.transform.GetChild(i);
+                Destroy(child.gameObject);
+            }
+            DatabaseManager.LoadDataFromPHP(id);
         }
         
     }
